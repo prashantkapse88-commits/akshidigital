@@ -12,6 +12,9 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
+import { Nav } from "@/components/site/Nav";
+import { Footer } from "@/components/site/Footer";
+import { FloatingCTA } from "@/components/site/FloatingCTA";
 
 function NotFoundComponent() {
   return (
@@ -152,7 +155,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <div className="min-h-screen bg-background text-foreground flex flex-col">
+        <Nav />
+        <main className="flex-1"><Outlet /></main>
+        <Footer />
+      </div>
+      <FloatingCTA />
       <Toaster richColors position="top-center" />
     </QueryClientProvider>
   );
