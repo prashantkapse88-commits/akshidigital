@@ -42,7 +42,8 @@ export const Route = createFileRoute("/services/$slug")({
 });
 
 function ServiceDetail() {
-  const { service } = Route.useLoaderData();
+  const data = Route.useLoaderData() as { service: Service };
+  const service = data.service;
   const Icon = service.icon;
   const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
   return (
