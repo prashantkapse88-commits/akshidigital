@@ -1,18 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { toast } from "sonner";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   CheckCircle2,
-  Globe,
-  Search,
-  Wrench,
-  ShoppingCart,
-  LayoutTemplate,
   MapPin,
-  Phone,
-  Mail,
-  MessageCircle,
   Star,
   Sparkles,
   TrendingUp,
@@ -20,20 +10,17 @@ import {
   Zap,
   Users,
   Award,
-  Building2,
-  GraduationCap,
   Stethoscope,
+  GraduationCap,
   Home,
   Factory,
   UtensilsCrossed,
+  ShoppingCart,
   Briefcase,
   Rocket,
-  ChevronDown,
 } from "lucide-react";
 import heroImg from "@/assets/hero-dashboard.jpg";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -42,6 +29,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Clients } from "@/components/site/Clients";
+import { LeadForm } from "@/components/site/LeadForm";
+import { services } from "@/lib/services-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,7 +40,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Indore's trusted website development & SEO agency. Custom websites, local SEO, e-commerce, WordPress & Google Business Profile services that grow leads.",
+          "Indore's trusted website development & SEO agency. Custom websites, local SEO, e-commerce, WordPress & Google Business Profile services that generate leads.",
       },
       { property: "og:title", content: "Akshi Digital — Website Development & SEO Company in Indore" },
       {
@@ -64,45 +54,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const services = [
-  {
-    icon: Globe,
-    title: "Website Development",
-    desc: "Business, corporate & custom web applications built for speed and conversions.",
-    items: ["Business Websites", "Corporate Sites", "Custom Web Apps", "Landing Pages"],
-  },
-  {
-    icon: Search,
-    title: "SEO Services",
-    desc: "Rank higher on Google with technical, on-page & local SEO that drives traffic.",
-    items: ["Local SEO Indore", "Technical SEO", "On-Page SEO", "Keyword Research"],
-  },
-  {
-    icon: ShoppingCart,
-    title: "E-Commerce Stores",
-    desc: "Beautiful, high-converting online stores with secure payments and analytics.",
-    items: ["Shopify & WooCommerce", "Custom Checkout", "Product SEO", "Inventory Sync"],
-  },
-  {
-    icon: LayoutTemplate,
-    title: "WordPress Development",
-    desc: "Pixel-perfect WordPress sites that are fast, secure and easy to manage.",
-    items: ["Custom Themes", "Elementor Builds", "Plugin Setup", "Speed Tuning"],
-  },
-  {
-    icon: MapPin,
-    title: "Google Business Profile",
-    desc: "Show up in Maps & local searches across Indore with optimized GBP setup.",
-    items: ["Profile Optimization", "Review Strategy", "Local Citations", "Posts & Photos"],
-  },
-  {
-    icon: Wrench,
-    title: "Website Maintenance",
-    desc: "Stay secure & fast with backups, monitoring and ongoing technical support.",
-    items: ["Security Updates", "Daily Backups", "Speed Optimization", "24/7 Support"],
-  },
-];
 
 const industries = [
   { icon: Stethoscope, name: "Healthcare" },
@@ -125,51 +76,19 @@ const whyChoose = [
 ];
 
 const portfolio = [
-  {
-    category: "Healthcare",
-    title: "City Care Clinic",
-    metric: "+312% organic traffic",
-    sub: "Local SEO + new website",
-  },
-  {
-    category: "Real Estate",
-    title: "Indore Prime Homes",
-    metric: "+185 monthly leads",
-    sub: "Landing pages + GBP",
-  },
-  {
-    category: "Manufacturing",
-    title: "Shree Industries",
-    metric: "#1 ranking for 24 keywords",
-    sub: "Technical SEO overhaul",
-  },
-  {
-    category: "Restaurant",
-    title: "Saffron Kitchen",
-    metric: "4.8★ — 320 new reviews",
-    sub: "GBP + WordPress site",
-  },
+  { category: "Healthcare", title: "City Care Clinic", metric: "+312% organic traffic", sub: "Local SEO + new website" },
+  { category: "Real Estate", title: "Indore Prime Homes", metric: "+185 monthly leads", sub: "Landing pages + GBP" },
+  { category: "Manufacturing", title: "Shree Industries", metric: "#1 ranking for 24 keywords", sub: "Technical SEO overhaul" },
+  { category: "Restaurant", title: "Saffron Kitchen", metric: "4.8★ — 320 new reviews", sub: "GBP + WordPress site" },
 ];
 
 const testimonials = [
-  {
-    name: "Dr. Rajeev Sharma",
-    biz: "Healthcare Clinic, Indore",
-    text: "Akshi Digital rebuilt our website and within 3 months our appointment bookings doubled. Truly professional team.",
-  },
-  {
-    name: "Priya Mehta",
-    biz: "Real Estate Developer",
-    text: "Their local SEO strategy put us on the Indore map — literally. We now rank in the top 3 for our key searches.",
-  },
-  {
-    name: "Anil Verma",
-    biz: "Manufacturing SME",
-    text: "From concept to launch in 3 weeks. Clean code, great design and traffic is climbing every month.",
-  },
+  { name: "Dr. Rajeev Sharma", biz: "Healthcare Clinic, Indore", text: "Akshi Digital rebuilt our website and within 3 months our appointment bookings doubled. Truly professional team." },
+  { name: "Priya Mehta", biz: "Real Estate Developer", text: "Their local SEO strategy put us on the Indore map — literally. We now rank in the top 3 for our key searches." },
+  { name: "Anil Verma", biz: "Manufacturing SME", text: "From concept to launch in 3 weeks. Clean code, great design and traffic is climbing every month." },
 ];
 
-const process = [
+const processSteps = [
   { step: "01", title: "Discovery Call", desc: "Understand your business, goals and audience." },
   { step: "02", title: "Strategy Planning", desc: "Map a website + SEO blueprint tailored to you." },
   { step: "03", title: "Design & Development", desc: "Craft a premium, fast, mobile-first website." },
@@ -179,38 +98,20 @@ const process = [
 ];
 
 const faqs = [
-  {
-    q: "How much does a website cost in Indore?",
-    a: "Our business website packages start from ₹19,999 and scale based on features. E-commerce and custom web apps are quoted after a discovery call.",
-  },
-  {
-    q: "How long does website development take?",
-    a: "Most business websites go live in 2–4 weeks. Larger e-commerce or custom builds typically take 6–10 weeks.",
-  },
-  {
-    q: "How does local SEO work?",
-    a: "We optimize your Google Business Profile, build local citations, target Indore-specific keywords and create location-aware content so you appear in Maps and local searches.",
-  },
-  {
-    q: "Do you provide ongoing support?",
-    a: "Yes. Every project includes 30 days of free support, and we offer affordable monthly maintenance & SEO plans after that.",
-  },
-  {
-    q: "Can you redesign my existing website?",
-    a: "Absolutely. We audit your current site, preserve your SEO equity and rebuild it with a modern, conversion-focused design.",
-  },
-  {
-    q: "How soon can SEO results be seen?",
-    a: "Local SEO can show movement in 4–6 weeks. Broader organic SEO typically shows strong, compounding results within 3–6 months.",
-  },
+  { q: "How much does a website cost in Indore?", a: "Our business website packages start from ₹19,999 and scale based on features. E-commerce and custom web apps are quoted after a discovery call." },
+  { q: "How long does website development take?", a: "Most business websites go live in 2–4 weeks. Larger e-commerce or custom builds typically take 6–10 weeks." },
+  { q: "How does local SEO work?", a: "We optimize your Google Business Profile, build local citations, target Indore-specific keywords and create location-aware content so you appear in Maps and local searches." },
+  { q: "Do you provide ongoing support?", a: "Yes. Every project includes 30 days of free support, and we offer affordable monthly maintenance & SEO plans after that." },
+  { q: "Can you redesign my existing website?", a: "Absolutely. We audit your current site, preserve your SEO equity and rebuild it with a modern, conversion-focused design." },
+  { q: "How soon can SEO results be seen?", a: "Local SEO can show movement in 4–6 weeks. Broader organic SEO typically shows strong, compounding results within 3–6 months." },
 ];
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Nav />
+    <>
       <Hero />
       <TrustBar />
+      <Clients />
       <Services />
       <WhyChoose />
       <Industries />
@@ -218,88 +119,12 @@ function Index() {
       <LocalSEO />
       <Process />
       <Testimonials />
-      <AuditCTA />
+      <LeadForm />
       <FAQ />
-      <Contact />
-      <Footer />
-    </div>
+    </>
   );
 }
 
-/* ---------------- NAV ---------------- */
-function Nav() {
-  const [open, setOpen] = useState(false);
-  const links = [
-    { href: "#services", label: "Services" },
-    { href: "#industries", label: "Industries" },
-    { href: "#portfolio", label: "Portfolio" },
-    { href: "#process", label: "Process" },
-    { href: "#contact", label: "Contact" },
-  ];
-  return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <a href="#top" className="flex items-center gap-2">
-          <div className="grid h-9 w-9 place-items-center rounded-lg bg-brand-gradient text-white font-bold shadow-glow">
-            A
-          </div>
-          <div className="leading-tight">
-            <div className="font-display text-base font-bold tracking-tight">AKSHI DIGITAL</div>
-            <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              Indore · India
-            </div>
-          </div>
-        </a>
-        <nav className="hidden items-center gap-8 md:flex">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-foreground/80 transition hover:text-brand"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-        <div className="hidden md:block">
-          <a href="#audit">
-            <Button className="bg-brand-gradient text-white hover:opacity-90">
-              Free Audit <ArrowRight className="ml-1 h-4 w-4" />
-            </Button>
-          </a>
-        </div>
-        <button
-          aria-label="Toggle menu"
-          onClick={() => setOpen(!open)}
-          className="md:hidden rounded-md border border-border p-2"
-        >
-          <ChevronDown className={`h-5 w-5 transition ${open ? "rotate-180" : ""}`} />
-        </button>
-      </div>
-      {open && (
-        <div className="border-t border-border bg-background md:hidden">
-          <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-3">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
-              >
-                {l.label}
-              </a>
-            ))}
-            <a href="#audit" onClick={() => setOpen(false)}>
-              <Button className="mt-2 w-full bg-brand-gradient text-white">Free Audit</Button>
-            </a>
-          </div>
-        </div>
-      )}
-    </header>
-  );
-}
-
-/* ---------------- HERO ---------------- */
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-hero text-white">
@@ -319,17 +144,13 @@ function Hero() {
             through strategic website development and SEO solutions.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#contact">
+            <Link to="/contact">
               <Button size="lg" className="bg-brand-gradient text-white hover:opacity-90 shadow-glow">
                 Get Free Consultation <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
-            </a>
+            </Link>
             <a href="#audit">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/25 bg-white/5 text-white hover:bg-white/10"
-              >
+              <Button size="lg" variant="outline" className="border-white/25 bg-white/5 text-white hover:bg-white/10">
                 Request Website Audit
               </Button>
             </a>
@@ -338,10 +159,7 @@ function Hero() {
             <div className="flex items-center gap-2">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="h-8 w-8 rounded-full border-2 border-[#0F172A] bg-brand-gradient"
-                  />
+                  <div key={i} className="h-8 w-8 rounded-full border-2 border-[#0F172A] bg-brand-gradient" />
                 ))}
               </div>
               <span>100+ businesses growing</span>
@@ -357,13 +175,7 @@ function Hero() {
         <div className="relative">
           <div className="absolute -inset-6 rounded-3xl bg-brand-gradient opacity-20 blur-3xl" />
           <div className="relative animate-float overflow-hidden rounded-2xl border border-white/10 glass shadow-glow">
-            <img
-              src={heroImg}
-              alt="Akshi Digital SEO analytics dashboard showing website traffic and lead growth"
-              width={1536}
-              height={1024}
-              className="h-auto w-full"
-            />
+            <img src={heroImg} alt="Akshi Digital SEO analytics dashboard" width={1536} height={1024} className="h-auto w-full" />
           </div>
           <div className="absolute -bottom-6 -left-6 hidden rounded-xl glass p-4 text-sm shadow-glow sm:block">
             <div className="text-white/60">Organic Traffic</div>
@@ -379,7 +191,6 @@ function Hero() {
   );
 }
 
-/* ---------------- TRUST ---------------- */
 function TrustBar() {
   const items = [
     { k: "100+", v: "Projects Delivered" },
@@ -401,37 +212,12 @@ function TrustBar() {
   );
 }
 
-/* ---------------- SERVICES ---------------- */
-function SectionHeading({
-  eyebrow,
-  title,
-  desc,
-  light,
-}: {
-  eyebrow: string;
-  title: string;
-  desc?: string;
-  light?: boolean;
-}) {
+function SectionHeading({ eyebrow, title, desc, light }: { eyebrow: string; title: string; desc?: string; light?: boolean }) {
   return (
     <div className="mx-auto max-w-2xl text-center">
-      <Badge
-        className={`gap-2 ${
-          light ? "border-white/15 bg-white/10 text-white" : "border-brand/20 bg-brand/5 text-brand"
-        }`}
-      >
-        {eyebrow}
-      </Badge>
-      <h2
-        className={`mt-4 text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl ${
-          light ? "text-white" : ""
-        }`}
-      >
-        {title}
-      </h2>
-      {desc && (
-        <p className={`mt-4 ${light ? "text-white/70" : "text-muted-foreground"}`}>{desc}</p>
-      )}
+      <Badge className={`gap-2 ${light ? "border-white/15 bg-white/10 text-white" : "border-brand/20 bg-brand/5 text-brand"}`}>{eyebrow}</Badge>
+      <h2 className={`mt-4 text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl ${light ? "text-white" : ""}`}>{title}</h2>
+      {desc && <p className={`mt-4 ${light ? "text-white/70" : "text-muted-foreground"}`}>{desc}</p>}
     </div>
   );
 }
@@ -446,50 +232,48 @@ function Services() {
           desc="From custom website development to full-funnel SEO — built specifically for Indore businesses."
         />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => (
-            <Card
-              key={s.title}
-              className="group relative overflow-hidden border-border bg-card p-7 shadow-card transition hover:-translate-y-1 hover:shadow-glow"
-            >
-              <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-brand-gradient opacity-0 blur-3xl transition group-hover:opacity-20" />
-              <div className="relative">
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient text-white shadow-glow">
-                  <s.icon className="h-6 w-6" />
-                </div>
-                <h3 className="mt-5 text-xl font-bold">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-                <ul className="mt-5 space-y-2">
-                  {s.items.map((it) => (
-                    <li key={it} className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="h-4 w-4 text-[#10B981]" />
-                      {it}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Card>
-          ))}
+          {services.map((s) => {
+            const Icon = s.icon;
+            return (
+              <Link key={s.slug} to="/services/$slug" params={{ slug: s.slug }}>
+                <Card className="group relative h-full overflow-hidden border-border bg-card p-7 shadow-card transition hover:-translate-y-1 hover:shadow-glow">
+                  <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-brand-gradient opacity-0 blur-3xl transition group-hover:opacity-20" />
+                  <div className="relative">
+                    <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient text-white shadow-glow">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h3 className="mt-5 text-xl font-bold">{s.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">{s.short}</p>
+                    <ul className="mt-5 space-y-2">
+                      {s.items.slice(0, 4).map((it) => (
+                        <li key={it} className="flex items-center gap-2 text-sm">
+                          <CheckCircle2 className="h-4 w-4 text-[#10B981]" />
+                          {it}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand">
+                      Learn more <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                    </div>
+                  </div>
+                </Card>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-/* ---------------- WHY CHOOSE ---------------- */
 function WhyChoose() {
   return (
     <section className="bg-card py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Why Akshi Digital"
-          title="A premium agency at a price Indore businesses can afford"
-        />
+        <SectionHeading eyebrow="Why Akshi Digital" title="A premium agency at a price Indore businesses can afford" />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {whyChoose.map((w) => (
-            <div
-              key={w.title}
-              className="rounded-2xl border border-border bg-background p-7 transition hover:border-brand/40 hover:shadow-card"
-            >
+            <div key={w.title} className="rounded-2xl border border-border bg-background p-7 transition hover:border-brand/40 hover:shadow-card">
               <div className="grid h-11 w-11 place-items-center rounded-lg bg-brand/10 text-brand">
                 <w.icon className="h-5 w-5" />
               </div>
@@ -503,7 +287,6 @@ function WhyChoose() {
   );
 }
 
-/* ---------------- INDUSTRIES ---------------- */
 function Industries() {
   return (
     <section id="industries" className="py-20 sm:py-28">
@@ -515,10 +298,7 @@ function Industries() {
         />
         <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {industries.map((i) => (
-            <div
-              key={i.name}
-              className="group flex flex-col items-center gap-3 rounded-2xl border border-border bg-card p-8 text-center transition hover:-translate-y-1 hover:border-brand/40 hover:shadow-card"
-            >
+            <div key={i.name} className="group flex flex-col items-center gap-3 rounded-2xl border border-border bg-card p-8 text-center transition hover:-translate-y-1 hover:border-brand/40 hover:shadow-card">
               <div className="grid h-14 w-14 place-items-center rounded-2xl bg-brand-gradient text-white shadow-glow transition group-hover:scale-110">
                 <i.icon className="h-7 w-7" />
               </div>
@@ -531,22 +311,14 @@ function Industries() {
   );
 }
 
-/* ---------------- PORTFOLIO ---------------- */
 function Portfolio() {
   return (
     <section id="portfolio" className="bg-card py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Portfolio"
-          title="Real results for real Indore businesses"
-          desc="A snapshot of growth we've helped local brands achieve."
-        />
+        <SectionHeading eyebrow="Portfolio" title="Real results for real Indore businesses" desc="A snapshot of growth we've helped local brands achieve." />
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           {portfolio.map((p) => (
-            <Card
-              key={p.title}
-              className="group relative overflow-hidden border-border bg-background p-8 shadow-card transition hover:shadow-glow"
-            >
+            <Card key={p.title} className="group relative overflow-hidden border-border bg-background p-8 shadow-card transition hover:shadow-glow">
               <div className="flex items-start justify-between">
                 <div>
                   <Badge className="border-brand/20 bg-brand/5 text-brand">{p.category}</Badge>
@@ -562,12 +334,16 @@ function Portfolio() {
             </Card>
           ))}
         </div>
+        <div className="mt-10 text-center">
+          <Link to="/portfolio">
+            <Button variant="outline">View all case studies <ArrowRight className="ml-1 h-4 w-4" /></Button>
+          </Link>
+        </div>
       </div>
     </section>
   );
 }
 
-/* ---------------- LOCAL SEO ---------------- */
 function LocalSEO() {
   const keywords = [
     "Website Development Company in Indore",
@@ -589,8 +365,7 @@ function LocalSEO() {
             Rank Higher in Google Searches Across <span className="text-gradient">Indore</span>
           </h2>
           <p className="mt-4 text-white/75">
-            We target the keywords your customers in Indore actually search for — and put your
-            business in front of them on Google Search and Maps.
+            We target the keywords your customers in Indore actually search for — and put your business in front of them on Google Search and Maps.
           </p>
           <ul className="mt-6 grid gap-2 sm:grid-cols-2">
             {keywords.map((k) => (
@@ -600,11 +375,11 @@ function LocalSEO() {
               </li>
             ))}
           </ul>
-          <a href="#audit" className="mt-8 inline-block">
+          <Link to="/services/$slug" params={{ slug: "local-seo" }} className="mt-8 inline-block">
             <Button size="lg" className="bg-brand-gradient text-white shadow-glow">
-              Get My Free Local SEO Audit <ArrowRight className="ml-1 h-4 w-4" />
+              Explore Local SEO <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
-          </a>
+          </Link>
         </div>
         <div className="relative">
           <div className="absolute -inset-6 rounded-3xl bg-brand-gradient opacity-20 blur-3xl" />
@@ -616,33 +391,20 @@ function LocalSEO() {
               loading="lazy"
             />
           </div>
-          <div className="absolute -bottom-6 left-6 rounded-xl glass p-4 text-sm shadow-glow">
-            <div className="flex items-center gap-2 text-white/70">
-              <MapPin className="h-4 w-4 text-[#06B6D4]" /> Indore, MP
-            </div>
-            <div className="mt-1 font-semibold">Serving local businesses across the city</div>
-          </div>
         </div>
       </div>
     </section>
   );
 }
 
-/* ---------------- PROCESS ---------------- */
 function Process() {
   return (
     <section id="process" className="py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Our Process"
-          title="A proven 6-step path to digital growth"
-        />
+        <SectionHeading eyebrow="Our Process" title="A proven 6-step path to digital growth" />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {process.map((p) => (
-            <div
-              key={p.step}
-              className="relative rounded-2xl border border-border bg-card p-7 shadow-card transition hover:-translate-y-1 hover:shadow-glow"
-            >
+          {processSteps.map((p) => (
+            <div key={p.step} className="relative rounded-2xl border border-border bg-card p-7 shadow-card transition hover:-translate-y-1 hover:shadow-glow">
               <div className="font-display text-5xl font-bold text-gradient">{p.step}</div>
               <h3 className="mt-3 text-lg font-semibold">{p.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
@@ -654,15 +416,11 @@ function Process() {
   );
 }
 
-/* ---------------- TESTIMONIALS ---------------- */
 function Testimonials() {
   return (
     <section className="bg-card py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Client Love"
-          title="What Indore businesses say about us"
-        />
+        <SectionHeading eyebrow="Client Love" title="What Indore businesses say about us" />
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {testimonials.map((t) => (
             <Card key={t.name} className="border-border bg-background p-7 shadow-card">
@@ -684,307 +442,20 @@ function Testimonials() {
   );
 }
 
-/* ---------------- AUDIT CTA ---------------- */
-function AuditCTA() {
-  const [loading, setLoading] = useState(false);
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      toast.success("Audit request received!", {
-        description: "Our team will reach out within 24 hours.",
-      });
-      (e.target as HTMLFormElement).reset();
-    }, 700);
-  }
-  return (
-    <section id="audit" className="py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-hero p-8 text-white shadow-glow sm:p-14">
-          <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px]" />
-          <div className="relative grid gap-10 lg:grid-cols-2">
-            <div>
-              <Badge className="gap-2 border-white/15 bg-white/10 text-white">
-                <Sparkles className="h-3.5 w-3.5 text-[#06B6D4]" /> Free for Indore Businesses
-              </Badge>
-              <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-                Get a <span className="text-gradient">FREE Website & SEO Audit</span>
-              </h2>
-              <p className="mt-4 max-w-md text-white/75">
-                We'll audit your current website, identify SEO opportunities, and send a personalized
-                growth roadmap — at no cost.
-              </p>
-              <ul className="mt-6 space-y-2 text-sm text-white/85">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-[#10B981]" /> 25-point technical SEO review
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Local keyword opportunities in Indore
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Speed & mobile experience report
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Conversion improvement ideas
-                </li>
-              </ul>
-            </div>
-            <form
-              onSubmit={onSubmit}
-              className="rounded-2xl glass p-6 sm:p-8"
-            >
-              <div className="grid gap-4 sm:grid-cols-2">
-                <Field label="Name" name="name" placeholder="Your name" required />
-                <Field label="Business Name" name="business" placeholder="Acme Pvt Ltd" required />
-                <Field label="Phone" name="phone" placeholder="+91 9876543210" type="tel" required />
-                <Field label="Email" name="email" placeholder="you@email.com" type="email" required />
-                <Field
-                  label="Website URL"
-                  name="website"
-                  placeholder="https://yoursite.com"
-                  className="sm:col-span-2"
-                />
-                <div className="sm:col-span-2">
-                  <Label htmlFor="service" className="text-white/85">
-                    Service Required
-                  </Label>
-                  <select
-                    id="service"
-                    name="service"
-                    className="mt-1.5 w-full rounded-md border border-white/15 bg-white/5 px-3 py-2 text-sm text-white outline-none focus:border-[#06B6D4]"
-                    required
-                    defaultValue=""
-                  >
-                    <option value="" disabled className="text-foreground">
-                      Choose a service
-                    </option>
-                    <option className="text-foreground">Website Development</option>
-                    <option className="text-foreground">SEO Services</option>
-                    <option className="text-foreground">Local SEO Indore</option>
-                    <option className="text-foreground">E-Commerce Store</option>
-                    <option className="text-foreground">WordPress Development</option>
-                    <option className="text-foreground">Website Maintenance</option>
-                  </select>
-                </div>
-              </div>
-              <Button
-                type="submit"
-                size="lg"
-                disabled={loading}
-                className="mt-6 w-full bg-brand-gradient text-white shadow-glow hover:opacity-90"
-              >
-                {loading ? "Sending..." : "Get My Free Audit"}
-                <ArrowRight className="ml-1 h-4 w-4" />
-              </Button>
-              <p className="mt-3 text-center text-xs text-white/60">
-                No spam. We respond within 24 hours.
-              </p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Field({
-  label,
-  name,
-  placeholder,
-  type = "text",
-  required,
-  className,
-}: {
-  label: string;
-  name: string;
-  placeholder: string;
-  type?: string;
-  required?: boolean;
-  className?: string;
-}) {
-  return (
-    <div className={className}>
-      <Label htmlFor={name} className="text-white/85">
-        {label}
-      </Label>
-      <Input
-        id={name}
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        required={required}
-        className="mt-1.5 border-white/15 bg-white/5 text-white placeholder:text-white/40 focus-visible:border-[#06B6D4] focus-visible:ring-0"
-      />
-    </div>
-  );
-}
-
-/* ---------------- FAQ ---------------- */
 function FAQ() {
   return (
     <section className="bg-card py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="FAQ"
-          title="Questions, answered"
-          desc="Everything you need to know before working with us."
-        />
+        <SectionHeading eyebrow="FAQ" title="Questions, answered" desc="Everything you need to know before working with us." />
         <Accordion type="single" collapsible className="mt-12 w-full">
           {faqs.map((f, i) => (
             <AccordionItem key={i} value={`item-${i}`} className="border-border">
-              <AccordionTrigger className="text-left text-base font-semibold hover:no-underline">
-                {f.q}
-              </AccordionTrigger>
+              <AccordionTrigger className="text-left text-base font-semibold hover:no-underline">{f.q}</AccordionTrigger>
               <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
       </div>
     </section>
-  );
-}
-
-/* ---------------- CONTACT ---------------- */
-function Contact() {
-  return (
-    <section id="contact" className="py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Contact"
-          title="Let's grow your business online"
-          desc="Talk to our Indore team today — choose whichever channel works best."
-        />
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          <ContactCard
-            icon={Phone}
-            title="Call Us"
-            value="+91 98765 43210"
-            href="tel:+919876543210"
-          />
-          <ContactCard
-            icon={MessageCircle}
-            title="WhatsApp"
-            value="Chat with our team"
-            href="https://wa.me/919876543210"
-          />
-          <ContactCard
-            icon={Mail}
-            title="Email"
-            value="hello@akshidigital.com"
-            href="mailto:hello@akshidigital.com"
-          />
-        </div>
-        <div className="mt-8 flex items-center justify-center gap-3 rounded-2xl border border-border bg-card p-6 text-sm text-muted-foreground">
-          <Building2 className="h-5 w-5 text-brand" />
-          <span>Akshi Digital · Indore, Madhya Pradesh, India</span>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ContactCard({
-  icon: Icon,
-  title,
-  value,
-  href,
-}: {
-  icon: typeof Phone;
-  title: string;
-  value: string;
-  href: string;
-}) {
-  return (
-    <a
-      href={href}
-      target={href.startsWith("http") ? "_blank" : undefined}
-      rel="noreferrer"
-      className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-1 hover:border-brand/40 hover:shadow-glow"
-    >
-      <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient text-white shadow-glow">
-        <Icon className="h-6 w-6" />
-      </div>
-      <div>
-        <div className="text-xs uppercase tracking-wider text-muted-foreground">{title}</div>
-        <div className="mt-0.5 font-semibold text-foreground">{value}</div>
-      </div>
-      <ArrowRight className="ml-auto h-5 w-5 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-brand" />
-    </a>
-  );
-}
-
-/* ---------------- FOOTER ---------------- */
-function Footer() {
-  return (
-    <footer className="bg-primary text-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-4">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-2">
-              <div className="grid h-9 w-9 place-items-center rounded-lg bg-brand-gradient font-bold shadow-glow">
-                A
-              </div>
-              <div>
-                <div className="font-display text-base font-bold tracking-tight">AKSHI DIGITAL</div>
-                <div className="text-[10px] uppercase tracking-[0.18em] text-white/60">
-                  Indore · India
-                </div>
-              </div>
-            </div>
-            <p className="mt-5 max-w-sm text-sm text-white/70">
-              Building websites that grow businesses. Custom development, SEO and digital growth
-              services for Indore and beyond.
-            </p>
-          </div>
-          <FooterCol
-            title="Company"
-            links={[
-              { l: "Home", h: "#top" },
-              { l: "Services", h: "#services" },
-              { l: "Portfolio", h: "#portfolio" },
-              { l: "Contact", h: "#contact" },
-            ]}
-          />
-          <FooterCol
-            title="Services"
-            links={[
-              { l: "Website Development", h: "#services" },
-              { l: "SEO Services", h: "#services" },
-              { l: "Local SEO Indore", h: "#services" },
-              { l: "WordPress", h: "#services" },
-            ]}
-          />
-        </div>
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/60 md:flex-row">
-          <div>© {new Date().getFullYear()} Akshi Digital. All rights reserved.</div>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white">
-              Terms & Conditions
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-function FooterCol({ title, links }: { title: string; links: { l: string; h: string }[] }) {
-  return (
-    <div>
-      <div className="text-sm font-semibold uppercase tracking-wider text-white/80">{title}</div>
-      <ul className="mt-4 space-y-2 text-sm text-white/70">
-        {links.map((l) => (
-          <li key={l.l}>
-            <a href={l.h} className="hover:text-white">
-              {l.l}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }
