@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { Clients } from "@/components/site/Clients";
 import { LeadForm } from "@/components/site/LeadForm";
-import { getService, services } from "@/lib/services-data";
+import { getService, services, type Service } from "@/lib/services-data";
 
 export const Route = createFileRoute("/services/$slug")({
   head: ({ params }) => {
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/services/$slug")({
       ],
     };
   },
-  loader: ({ params }) => {
+  loader: ({ params }): { service: Service } => {
     const service = getService(params.slug);
     if (!service) throw notFound();
     return { service };
