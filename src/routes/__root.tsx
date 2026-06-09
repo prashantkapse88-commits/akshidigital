@@ -98,6 +98,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Akshi Digital" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#0F172A" },
+      { name: "twitter:title", content: "Akshi Digital — Website Development & SEO Agency in Indore" },
+      { name: "description", content: "Akshi Digital builds conversion-focused websites and SEO strategies for Indore businesses." },
+      { property: "og:description", content: "Akshi Digital builds conversion-focused websites and SEO strategies for Indore businesses." },
+      { name: "twitter:description", content: "Akshi Digital builds conversion-focused websites and SEO strategies for Indore businesses." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3dc3ed0e-b564-4f95-968f-e22c4f5741fd/id-preview-b0f9d503--0069c106-8ac1-4c98-944b-447d1df20e18.lovable.app-1780931754899.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3dc3ed0e-b564-4f95-968f-e22c4f5741fd/id-preview-b0f9d503--0069c106-8ac1-4c98-944b-447d1df20e18.lovable.app-1780931754899.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
