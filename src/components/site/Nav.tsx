@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoAsset from "@/assets/akshi-logo.png.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
