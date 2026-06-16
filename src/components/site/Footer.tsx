@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail } from "lucide-react";
+import logoAsset from "@/assets/akshi-logo.png.asset.json";
 
 export function Footer() {
   return (
@@ -8,10 +9,11 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2">
-              <div className="grid h-9 w-9 place-items-center rounded-lg bg-brand-gradient font-bold shadow-glow">
-                A
-              </div>
-              <div className="font-display text-base font-bold tracking-tight">AKSHI DIGITAL</div>
+              <img
+                src={logoAsset.url}
+                alt="Akshi Digital"
+                className="h-10 w-auto"
+              />
             </div>
             <p className="mt-4 max-w-md text-sm text-white/70">
               Indore's premium digital agency for website development, SEO and lead generation. We
