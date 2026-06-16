@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail } from "lucide-react";
+import logoAsset from "@/assets/akshi-logo.png.asset.json";
 
 export function Footer() {
   return (

@@ -17,15 +17,14 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="grid h-9 w-9 place-items-center rounded-lg bg-brand-gradient text-white font-bold shadow-glow">
-            A
-          </div>
-          <div className="leading-tight">
-            <div className="font-display text-base font-bold tracking-tight">AKSHI DIGITAL</div>
-            <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              Indore · India
-            </div>
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src={logoAsset.url}
+            alt="Akshi Digital"
+            className="h-10 w-auto"
+          />
+          <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground leading-tight">
+            Indore · India
           </div>
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
