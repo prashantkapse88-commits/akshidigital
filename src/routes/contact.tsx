@@ -4,6 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Clients } from "@/components/site/Clients";
 import { LeadForm } from "@/components/site/LeadForm";
 
+const SITE_URL = "https://akshi-grow-indore.lovable.app";
+
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
@@ -15,7 +17,9 @@ export const Route = createFileRoute("/contact")({
       },
       { property: "og:title", content: "Contact Akshi Digital" },
       { property: "og:description", content: "Get a free audit and growth roadmap from Indore's trusted digital agency." },
+      { property: "og:url", content: `${SITE_URL}/contact` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/contact` }],
   }),
   component: ContactPage,
 });

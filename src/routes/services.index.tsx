@@ -7,6 +7,8 @@ import { Clients } from "@/components/site/Clients";
 import { LeadForm } from "@/components/site/LeadForm";
 import { services } from "@/lib/services-data";
 
+const SITE_URL = "https://akshi-grow-indore.lovable.app";
+
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
@@ -18,7 +20,9 @@ export const Route = createFileRoute("/services/")({
       },
       { property: "og:title", content: "Digital Services — Akshi Digital Indore" },
       { property: "og:description", content: "Premium digital services to grow your Indore business online." },
+      { property: "og:url", content: `${SITE_URL}/services` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/services` }],
   }),
   component: ServicesPage,
 });

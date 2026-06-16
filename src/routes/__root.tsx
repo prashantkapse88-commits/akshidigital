@@ -15,6 +15,9 @@ import { Toaster } from "@/components/ui/sonner";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { FloatingCTA } from "@/components/site/FloatingCTA";
+import logoAsset from "@/assets/akshi-logo.png.asset.json";
+
+const SITE_URL = "https://akshi-grow-indore.lovable.app";
 
 function NotFoundComponent() {
   return (
@@ -99,14 +102,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#0F172A" },
       { name: "twitter:title", content: "Akshi Digital — Website Development & SEO Agency in Indore" },
-      { name: "description", content: "Akshi Digital builds conversion-focused websites and SEO strategies for Indore businesses." },
-      { property: "og:description", content: "Akshi Digital builds conversion-focused websites and SEO strategies for Indore businesses." },
       { name: "twitter:description", content: "Akshi Digital builds conversion-focused websites and SEO strategies for Indore businesses." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3dc3ed0e-b564-4f95-968f-e22c4f5741fd/id-preview-b0f9d503--0069c106-8ac1-4c98-944b-447d1df20e18.lovable.app-1780931754899.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3dc3ed0e-b564-4f95-968f-e22c4f5741fd/id-preview-b0f9d503--0069c106-8ac1-4c98-944b-447d1df20e18.lovable.app-1780931754899.png" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
+      { name: "googlebot", content: "index, follow" },
+      { name: "format-detection", content: "telephone=yes" },
+      { name: "geo.region", content: "IN-MP" },
+      { name: "geo.placename", content: "Indore" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: logoAsset.url },
+      { rel: "apple-touch-icon", href: logoAsset.url },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -120,7 +126,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
+          "@id": `${SITE_URL}/#organization`,
           name: "Akshi Digital",
+          image: `${SITE_URL}${logoAsset.url}`,
+          logo: `${SITE_URL}${logoAsset.url}`,
           description:
             "Website development, SEO, and digital growth agency based in Indore, Madhya Pradesh.",
           areaServed: "Indore, Madhya Pradesh, India",
@@ -130,8 +139,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             addressRegion: "Madhya Pradesh",
             addressCountry: "IN",
           },
-          url: "/",
+          url: SITE_URL,
+          telephone: "+91-98765-43210",
+          email: "hello@akshidigital.com",
           priceRange: "₹₹",
+          sameAs: [
+            "https://akshidigital.com",
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          url: SITE_URL,
+          name: "Akshi Digital",
+          publisher: { "@id": `${SITE_URL}/#organization` },
         }),
       },
     ],

@@ -13,6 +13,8 @@ import { Clients } from "@/components/site/Clients";
 import { LeadForm } from "@/components/site/LeadForm";
 import { getService, services, type Service } from "@/lib/services-data";
 
+const SITE_URL = "https://akshi-grow-indore.lovable.app";
+
 export const Route = createFileRoute("/services/$slug")({
   head: ({ params }) => {
     const s = getService(params.slug);
@@ -20,13 +22,17 @@ export const Route = createFileRoute("/services/$slug")({
       ? `${s.title} in Indore — Pricing, Process & Results | Akshi Digital`
       : "Service — Akshi Digital";
     const desc = s?.hero ?? s?.short ?? "Premium digital services in Indore.";
+    const url = `${SITE_URL}/services/${params.slug}`;
     return {
       meta: [
         { title },
         { name: "description", content: desc },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
+        { property: "og:url", content: url },
+        { property: "og:type", content: "article" },
       ],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   loader: ({ params }): { service: Service } => {

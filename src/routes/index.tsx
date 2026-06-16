@@ -33,6 +33,8 @@ import { Clients } from "@/components/site/Clients";
 import { LeadForm } from "@/components/site/LeadForm";
 import { services } from "@/lib/services-data";
 
+const SITE_URL = "https://akshi-grow-indore.lovable.app";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -48,9 +50,11 @@ export const Route = createFileRoute("/")({
         content:
           "We help Indore businesses generate more leads, rank higher on Google, and grow faster.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${SITE_URL}/` },
+      { property: "og:image", content: `${SITE_URL}${heroImg}` },
+      { name: "twitter:image", content: `${SITE_URL}${heroImg}` },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),
   component: Index,
 });

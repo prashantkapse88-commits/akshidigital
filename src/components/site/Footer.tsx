@@ -11,8 +11,10 @@ export function Footer() {
             <div className="flex items-center gap-2">
               <img
                 src={logoAsset.url}
-                alt="Akshi Digital"
-                className="h-10 w-auto"
+                alt="Akshi Digital — Website Development & SEO Agency in Indore"
+                className="h-20 w-auto sm:h-24"
+                width={240}
+                height={96}
               />
             </div>
             <p className="mt-4 max-w-md text-sm text-white/70">
