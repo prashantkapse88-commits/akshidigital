@@ -18,6 +18,8 @@ import {
   ShoppingCart,
   Briefcase,
   Rocket,
+  Search,
+  Globe2,
 } from "lucide-react";
 import heroImg from "@/assets/hero-dashboard.jpg";
 import { Button } from "@/components/ui/button";
@@ -42,19 +44,60 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Indore's trusted website development & SEO agency. Custom websites, local SEO, e-commerce, WordPress & Google Business Profile services that generate leads.",
+          "Website development, SEO, local SEO, e-commerce and lead generation for Indore, India and overseas businesses that want more qualified enquiries.",
       },
       { property: "og:title", content: "Akshi Digital — Website Development & SEO Company in Indore" },
       {
         property: "og:description",
         content:
-          "We help Indore businesses generate more leads, rank higher on Google, and grow faster.",
+          "We help Indian and international businesses generate more leads, rank higher on Google, and grow faster.",
       },
       { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:image", content: `${SITE_URL}${heroImg}` },
       { name: "twitter:image", content: `${SITE_URL}${heroImg}` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.a,
+            },
+          })),
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": `${SITE_URL}/#lead-generation-seo`,
+          name: "Website Development, SEO and Lead Generation for India and Global Businesses",
+          provider: { "@id": `${SITE_URL}/#organization` },
+          areaServed: [
+            { "@type": "City", name: "Indore" },
+            { "@type": "Country", name: "India" },
+            { "@type": "Place", name: "Worldwide" },
+          ],
+          serviceType: [
+            "Website Development",
+            "SEO Services",
+            "Local SEO",
+            "Google Business Profile Optimization",
+            "Lead Generation",
+          ],
+          description:
+            "Conversion-focused website development, SEO, local SEO and lead generation services for Indian and international businesses.",
+        }),
+      },
+    ],
   }),
   component: Index,
 });
@@ -71,7 +114,7 @@ const industries = [
 ];
 
 const whyChoose = [
-  { icon: MapPin, title: "Based in Indore", desc: "On-ground team that understands the local market." },
+  { icon: MapPin, title: "Based in Indore", desc: "Local market insight with remote delivery for clients worldwide." },
   { icon: TrendingUp, title: "SEO-First Development", desc: "Every site is engineered to rank from day one." },
   { icon: Shield, title: "Transparent Reporting", desc: "Clear monthly reports — no jargon, no surprises." },
   { icon: Zap, title: "Fast Turnaround", desc: "Most websites delivered in 2–4 weeks." },
@@ -108,6 +151,35 @@ const faqs = [
   { q: "Do you provide ongoing support?", a: "Yes. Every project includes 30 days of free support, and we offer affordable monthly maintenance & SEO plans after that." },
   { q: "Can you redesign my existing website?", a: "Absolutely. We audit your current site, preserve your SEO equity and rebuild it with a modern, conversion-focused design." },
   { q: "How soon can SEO results be seen?", a: "Local SEO can show movement in 4–6 weeks. Broader organic SEO typically shows strong, compounding results within 3–6 months." },
+  { q: "Does Akshi Digital work with clients outside India?", a: "Yes. Akshi Digital works with overseas clients for website development, SEO, content strategy and lead generation. Projects are managed remotely with discovery calls, milestone reviews, shared dashboards and clear delivery timelines." },
+];
+
+const answerHighlights = [
+  {
+    q: "Who is the best fit for Akshi Digital?",
+    a: "Akshi Digital is best for Indian and overseas businesses that need a conversion-focused website, stronger Google visibility, and a practical lead generation system.",
+  },
+  {
+    q: "What results does the website focus on?",
+    a: "The website is built to generate calls, WhatsApp enquiries, form submissions, map visibility, and qualified sales conversations.",
+  },
+  {
+    q: "Which locations do you target?",
+    a: "We target Indore and India search intent, plus international buyer searches for businesses selling services to overseas markets.",
+  },
+  {
+    q: "Do you work with clients outside India?",
+    a: "Yes. Akshi Digital builds websites, SEO campaigns, and lead generation funnels for overseas clients using remote discovery calls, shared dashboards, async reviews, and clear milestone delivery.",
+  },
+];
+
+const leadMagnets = [
+  "Homepage conversion score",
+  "Core Web Vitals and mobile speed check",
+  "Google Business Profile visibility review",
+  "Top 10 missed keyword opportunities",
+  "Competitor gap snapshot for local and global searches",
+  "Lead capture and CTA recommendations",
 ];
 
 function Index() {
@@ -117,12 +189,15 @@ function Index() {
       <TrustBar />
       <Clients />
       <Services />
+      <AnswerEngine />
+      <GlobalProjects />
       <WhyChoose />
       <Industries />
       <Portfolio />
       <LocalSEO />
       <Process />
       <Testimonials />
+      <LeadMagnet />
       <LeadForm />
       <FAQ />
     </>
@@ -137,15 +212,15 @@ function Hero() {
         <div className="flex flex-col justify-center animate-fade-in">
           <Badge className="w-fit gap-2 border-white/15 bg-white/10 text-white backdrop-blur">
             <Sparkles className="h-3.5 w-3.5 text-[#06B6D4]" />
-            Indore's Trusted Digital Agency
+            India-based digital agency for local and global growth
           </Badge>
           <h1 className="mt-5 text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[64px]">
-            Indore's Trusted Website Development &{" "}
-            <span className="text-gradient">SEO Agency</span>
+            Website Development & SEO for{" "}
+            <span className="text-gradient">India and Global Businesses</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-white/75">
-            We help local businesses generate more leads, rank higher on Google, and grow faster
-            through strategic website development and SEO solutions.
+            We help local, national, and overseas businesses generate more leads, rank higher on
+            Google, and grow faster through strategic website development and SEO solutions.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/contact">
@@ -166,7 +241,7 @@ function Hero() {
                   <div key={i} className="h-8 w-8 rounded-full border-2 border-[#0F172A] bg-brand-gradient" />
                 ))}
               </div>
-              <span>100+ businesses growing</span>
+              <span>100+ businesses growing in India and abroad</span>
             </div>
             <div className="flex items-center gap-1">
               {[1, 2, 3, 4, 5].map((i) => (
@@ -200,7 +275,7 @@ function TrustBar() {
     { k: "100+", v: "Projects Delivered" },
     { k: "SEO-First", v: "Development Approach" },
     { k: "100%", v: "Mobile Responsive" },
-    { k: "Indore", v: "Local Expertise" },
+    { k: "Global", v: "Remote Delivery" },
   ];
   return (
     <section className="border-b border-border bg-card">
@@ -270,6 +345,99 @@ function Services() {
   );
 }
 
+function AnswerEngine() {
+  return (
+    <section className="border-y border-border bg-background py-20 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="AI SEO + GEO + AEO"
+          title="Built to be understood by Google, AI Overviews and answer engines"
+          desc="Clear answers, local entity signals, schema, service pages and proof points help search engines and AI assistants understand what Akshi Digital does, who we serve, and why prospects should contact us."
+        />
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {answerHighlights.map((item) => (
+            <Card key={item.q} className="border-border bg-card p-6 shadow-card">
+              <div className="mb-4 grid h-10 w-10 place-items-center rounded-lg bg-brand/10 text-brand">
+                <Search className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-semibold">{item.q}</h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.a}</p>
+            </Card>
+          ))}
+        </div>
+        <div className="mt-10 grid gap-4 rounded-2xl border border-brand/20 bg-brand/5 p-6 md:grid-cols-[1.2fr_0.8fr] md:p-8">
+          <div>
+            <h3 className="text-2xl font-bold">Answer-first pages convert better.</h3>
+            <p className="mt-3 text-muted-foreground">
+              Every Akshi Digital page is shaped around buyer questions, local intent, service proof,
+              conversion CTAs, and structured data so visitors and AI crawlers get useful answers fast.
+            </p>
+          </div>
+          <div className="grid gap-2 text-sm">
+            {["FAQ schema", "LocalBusiness schema", "Organization schema", "Service schema", "Internal service links"].map((item) => (
+              <div key={item} className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-[#10B981]" />
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GlobalProjects() {
+  const points = [
+    "Remote discovery calls and milestone-based delivery",
+    "SEO pages for international, national, and local search intent",
+    "Lead capture through forms, WhatsApp, calls, CRM-ready enquiries, and analytics",
+    "Clear reporting for rankings, traffic, conversions, and next actions",
+  ];
+
+  return (
+    <section className="bg-card py-20 sm:py-28">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+        <div>
+          <Badge className="border-brand/20 bg-brand/5 text-brand">Global Projects</Badge>
+          <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+            Lead generation websites for clients in India and outside India
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Akshi Digital works with service businesses, startups, consultants, healthcare brands,
+            education companies, and B2B teams that want enquiries from India, the USA, UK, UAE,
+            Canada, Australia, and other international markets.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link to="/contact">
+              <Button className="bg-brand-gradient text-white shadow-glow">
+                Discuss an Overseas Project <ArrowRight className="ml-1 h-4 w-4" />
+              </Button>
+            </Link>
+            <a href="#audit">
+              <Button variant="outline">Get Global SEO Audit</Button>
+            </a>
+          </div>
+        </div>
+        <Card className="border-border bg-background p-7 shadow-card">
+          <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient text-white shadow-glow">
+            <Globe2 className="h-6 w-6" />
+          </div>
+          <h3 className="mt-5 text-xl font-bold">What international clients get</h3>
+          <div className="mt-5 grid gap-3">
+            {points.map((point) => (
+              <div key={point} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#10B981]" />
+                <span className="text-sm text-muted-foreground">{point}</span>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </div>
+    </section>
+  );
+}
+
 function WhyChoose() {
   return (
     <section className="bg-card py-20 sm:py-28">
@@ -286,6 +454,50 @@ function WhyChoose() {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function LeadMagnet() {
+  return (
+    <section id="audit" className="bg-hero py-20 text-white sm:py-28">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+        <div>
+          <Badge className="border-white/15 bg-white/10 text-white">Free Lead Gen Audit</Badge>
+          <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+            Turn your website into a lead generation magnet
+          </h2>
+          <p className="mt-4 text-white/75">
+            Get a practical audit that shows what is blocking calls, WhatsApp enquiries, form fills,
+            Google rankings, and AI search visibility.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link to="/contact">
+              <Button size="lg" className="bg-brand-gradient text-white shadow-glow">
+                Claim Free Audit <ArrowRight className="ml-1 h-4 w-4" />
+              </Button>
+            </Link>
+            <a href="tel:+919630040607">
+              <Button size="lg" variant="outline" className="border-white/25 bg-white/5 text-white hover:bg-white/10">
+                Call Now
+              </Button>
+            </a>
+          </div>
+        </div>
+        <Card className="border-white/10 bg-white/10 p-6 text-white shadow-glow backdrop-blur md:p-8">
+          <div className="grid gap-3 sm:grid-cols-2">
+            {leadMagnets.map((item) => (
+              <div key={item} className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#06B6D4]" />
+                <span className="text-sm text-white/85">{item}</span>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-sm text-white/65">
+            You get a concise action list, not a generic report. The goal is simple: more qualified local enquiries.
+          </p>
+        </Card>
       </div>
     </section>
   );

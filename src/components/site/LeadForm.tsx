@@ -87,7 +87,7 @@ export function LeadForm({
     setTimeout(() => {
       setLoading(false);
       toast.success("Request received!", {
-        description: "Our Indore team will reach out within 24 hours.",
+        description: "Our team will reach out within 24 hours.",
       });
       (e.target as HTMLFormElement).reset();
       setPhone("");
@@ -106,19 +106,19 @@ export function LeadForm({
           <div className="relative grid gap-10 lg:grid-cols-2">
             <div>
               <Badge className="gap-2 border-white/15 bg-white/10 text-white">
-                <Sparkles className="h-3.5 w-3.5 text-[#06B6D4]" /> Free for Indore Businesses
+                <Sparkles className="h-3.5 w-3.5 text-[#06B6D4]" /> Free for India and overseas businesses
               </Badge>
               <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
                 {title}
               </h2>
               <p className="mt-4 max-w-md text-white/75">
-                We'll audit your current website, identify SEO opportunities, and send a personalized
+                We'll audit your current website, identify local and global SEO opportunities, and send a personalized
                 growth roadmap — at no cost.
               </p>
               <ul className="mt-6 space-y-2 text-sm text-white/85">
                 {[
                   "25-point technical SEO review",
-                  "Local keyword opportunities in Indore",
+                  "Local and international keyword opportunities",
                   "Speed & mobile experience report",
                   "Conversion improvement ideas",
                 ].map((t) => (
@@ -143,7 +143,7 @@ export function LeadForm({
                       id="phone"
                       name="phone"
                       type="tel"
-                      placeholder="+91 9876543210"
+                      placeholder="+91 9630040607"
                       required
                       value={phone}
                       onChange={(e) => {

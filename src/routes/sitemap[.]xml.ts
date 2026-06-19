@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { blogPosts } from "@/lib/blog-data";
 import { services } from "@/lib/services-data";
 
 const BASE_URL = "https://akshi-grow-indore.lovable.app";
@@ -17,6 +18,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/services", changefreq: "monthly", priority: "0.9" },
+          { path: "/blog", changefreq: "weekly", priority: "0.8" },
           { path: "/about", changefreq: "monthly", priority: "0.7" },
           { path: "/portfolio", changefreq: "monthly", priority: "0.7" },
           { path: "/contact", changefreq: "monthly", priority: "0.7" },
@@ -24,6 +26,11 @@ export const Route = createFileRoute("/sitemap.xml")({
             path: `/services/${s.slug}`,
             changefreq: "monthly" as const,
             priority: "0.8",
+          })),
+          ...blogPosts.map((post) => ({
+            path: `/blog/${post.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.7",
           })),
         ];
 

@@ -15,7 +15,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { FloatingCTA } from "@/components/site/FloatingCTA";
-import logoAsset from "@/assets/akshi-logo.png.asset.json";
+import logoUrl from "@/assets/akshi-logo-transparent.png";
 
 const SITE_URL = "https://akshi-grow-indore.lovable.app";
 
@@ -88,21 +88,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Akshi Digital is Indore's trusted website development & SEO agency. We build fast, SEO-optimized websites that generate leads and rank on Google.",
+          "Akshi Digital is an Indore-based website development and SEO agency serving Indian and overseas clients with fast, SEO-optimized lead generation websites.",
       },
       { name: "author", content: "Akshi Digital" },
       { property: "og:title", content: "Akshi Digital — Website Development & SEO Agency in Indore" },
       {
         property: "og:description",
         content:
-          "Custom website development, local SEO, and digital growth services for Indore businesses.",
+          "Custom website development, local SEO, global SEO, and digital growth services for Indian and international businesses.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Akshi Digital" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#0F172A" },
       { name: "twitter:title", content: "Akshi Digital — Website Development & SEO Agency in Indore" },
-      { name: "twitter:description", content: "Akshi Digital builds conversion-focused websites and SEO strategies for Indore businesses." },
+      { name: "twitter:description", content: "Akshi Digital builds conversion-focused websites and SEO strategies for Indian and overseas businesses." },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { name: "googlebot", content: "index, follow" },
       { name: "format-detection", content: "telephone=yes" },
@@ -111,8 +111,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/png", href: logoAsset.url },
-      { rel: "apple-touch-icon", href: logoAsset.url },
+      { rel: "icon", type: "image/png", href: logoUrl },
+      { rel: "apple-touch-icon", href: logoUrl },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -128,11 +128,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "LocalBusiness",
           "@id": `${SITE_URL}/#organization`,
           name: "Akshi Digital",
-          image: `${SITE_URL}${logoAsset.url}`,
-          logo: `${SITE_URL}${logoAsset.url}`,
+          image: `${SITE_URL}${logoUrl}`,
+          logo: `${SITE_URL}${logoUrl}`,
           description:
-            "Website development, SEO, and digital growth agency based in Indore, Madhya Pradesh.",
-          areaServed: "Indore, Madhya Pradesh, India",
+            "Website development, SEO, and digital growth agency based in Indore, serving Indian and international clients.",
+          areaServed: [
+            { "@type": "City", name: "Indore" },
+            { "@type": "Country", name: "India" },
+            { "@type": "Place", name: "Worldwide" },
+          ],
           address: {
             "@type": "PostalAddress",
             addressLocality: "Indore",
@@ -140,11 +144,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             addressCountry: "IN",
           },
           url: SITE_URL,
-          telephone: "+91-98765-43210",
+          telephone: "+91-96300-40607",
           email: "hello@akshidigital.com",
           priceRange: "₹₹",
           sameAs: [
             "https://akshidigital.com",
+            "https://www.linkedin.com/company/akshi-digital/",
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: "Akshi Digital",
+          url: SITE_URL,
+          logo: `${SITE_URL}${logoUrl}`,
+          image: `${SITE_URL}${logoUrl}`,
+          description:
+            "Akshi Digital is an Indore-based website development, SEO, local SEO, and digital lead generation agency serving Indian and overseas clients.",
+          email: "hello@akshidigital.com",
+          telephone: "+91-96300-40607",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Indore",
+            addressRegion: "Madhya Pradesh",
+            addressCountry: "IN",
+          },
+          sameAs: [
+            "https://akshidigital.com",
+            "https://www.linkedin.com/company/akshi-digital/",
           ],
         }),
       },

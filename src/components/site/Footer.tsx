@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { MapPin, Phone, Mail } from "lucide-react";
-import logoAsset from "@/assets/akshi-logo.png.asset.json";
+import { Linkedin, MapPin, Phone, Mail } from "lucide-react";
+import logoUrl from "@/assets/akshi-logo-transparent.png";
 
 export function Footer() {
   return (
@@ -10,21 +10,29 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-2">
               <img
-                src={logoAsset.url}
+                src={logoUrl}
                 alt="Akshi Digital — Website Development & SEO Agency in Indore"
-                className="h-20 w-auto sm:h-24"
-                width={240}
-                height={96}
+                className="h-20 w-auto brightness-125 drop-shadow-[0_8px_22px_rgba(6,182,212,0.22)] sm:h-24"
+                width={188}
+                height={120}
               />
             </div>
             <p className="mt-4 max-w-md text-sm text-white/70">
-              Indore's premium digital agency for website development, SEO and lead generation. We
-              help local businesses grow online with measurable results.
+              Indore-based digital agency for website development, SEO and lead generation. We
+              help local, national and overseas businesses grow online with measurable results.
             </p>
             <div className="mt-6 space-y-2 text-sm text-white/75">
               <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-[#06B6D4]"/> Indore, Madhya Pradesh, India</div>
-              <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-white"><Phone className="h-4 w-4 text-[#06B6D4]"/> +91 98765 43210</a>
+              <a href="tel:+919630040607" className="flex items-center gap-2 hover:text-white"><Phone className="h-4 w-4 text-[#06B6D4]"/> +91 96300 40607</a>
               <a href="mailto:hello@akshidigital.com" className="flex items-center gap-2 hover:text-white"><Mail className="h-4 w-4 text-[#06B6D4]"/> hello@akshidigital.com</a>
+              <a
+                href="https://www.linkedin.com/company/akshi-digital/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 hover:text-white"
+              >
+                <Linkedin className="h-4 w-4 text-[#06B6D4]" /> LinkedIn
+              </a>
             </div>
           </div>
           <div>

@@ -93,13 +93,13 @@ function ServiceDetail() {
                     Get Free Consultation <ArrowRight className="ml-1 h-4 w-4" />
                   </Button>
                 </a>
-                <a href="tel:+919876543210">
+                <a href="tel:+919630040607">
                   <Button
                     size="lg"
                     variant="outline"
                     className="border-white/25 bg-white/5 text-white hover:bg-white/10"
                   >
-                    <Phone className="mr-2 h-4 w-4" /> +91 98765 43210
+                    <Phone className="mr-2 h-4 w-4" /> +91 96300 40607
                   </Button>
                 </a>
               </div>

@@ -13,7 +13,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Talk to Akshi Digital. Get a free website & SEO audit. Call, WhatsApp or email our Indore team today.",
+          "Talk to Akshi Digital. Get a free website & SEO audit for India or overseas projects. Call, WhatsApp or email our team today.",
       },
       { property: "og:title", content: "Contact Akshi Digital" },
       { property: "og:description", content: "Get a free audit and growth roadmap from Indore's trusted digital agency." },
@@ -35,7 +35,7 @@ function ContactPage() {
             Let's grow your business <span className="text-gradient">online</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-white/75">
-            Talk to our Indore team today — choose whichever channel works best.
+            Talk to our India-based team for local, national, or overseas projects. Choose whichever channel works best.
           </p>
         </div>
       </section>
@@ -43,8 +43,8 @@ function ContactPage() {
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 md:grid-cols-3">
-            <ContactCard icon={Phone} title="Call Us" value="+91 98765 43210" href="tel:+919876543210" />
-            <ContactCard icon={MessageCircle} title="WhatsApp" value="Chat with our team" href="https://wa.me/919876543210" />
+            <ContactCard icon={Phone} title="Call Us" value="+91 96300 40607" href="tel:+919630040607" />
+            <ContactCard icon={MessageCircle} title="WhatsApp" value="Chat with our team" href="https://wa.me/919630040607" />
             <ContactCard icon={Mail} title="Email" value="hello@akshidigital.com" href="mailto:hello@akshidigital.com" />
           </div>
           <div className="mt-8 flex items-center justify-center gap-3 rounded-2xl border border-border bg-card p-6 text-sm text-muted-foreground">

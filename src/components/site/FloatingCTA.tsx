@@ -1,7 +1,7 @@
 import { MessageCircle, Phone } from "lucide-react";
 
-const WHATSAPP = "919876543210";
-const PHONE = "+919876543210";
+const WHATSAPP = "919630040607";
+const PHONE = "+919630040607";
 
 export function FloatingCTA() {
   return (
