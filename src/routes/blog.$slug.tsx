@@ -12,7 +12,7 @@ import {
 import { LeadForm } from "@/components/site/LeadForm";
 import { blogPosts, getBlogPost, type BlogPost } from "@/lib/blog-data";
 
-const SITE_URL = "https://akshi-grow-indore.lovable.app";
+const SITE_URL = "https://akshidigital.com";
 
 export const Route = createFileRoute("/blog/$slug")({
   head: ({ params }) => {

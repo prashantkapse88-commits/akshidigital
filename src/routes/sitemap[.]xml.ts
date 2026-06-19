@@ -3,7 +3,7 @@ import type {} from "@tanstack/react-start";
 import { blogPosts } from "@/lib/blog-data";
 import { services } from "@/lib/services-data";
 
-const BASE_URL = "https://akshi-grow-indore.lovable.app";
+const BASE_URL = "https://akshidigital.com";
 
 interface SitemapEntry {
   path: string;

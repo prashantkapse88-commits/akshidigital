@@ -17,7 +17,7 @@ import { Footer } from "@/components/site/Footer";
 import { FloatingCTA } from "@/components/site/FloatingCTA";
 import logoUrl from "@/assets/akshi-logo-transparent.png";
 
-const SITE_URL = "https://akshi-grow-indore.lovable.app";
+const SITE_URL = "https://akshidigital.com";
 
 function NotFoundComponent() {
   return (

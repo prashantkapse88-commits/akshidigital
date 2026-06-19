@@ -35,7 +35,7 @@ import { Clients } from "@/components/site/Clients";
 import { LeadForm } from "@/components/site/LeadForm";
 import { services } from "@/lib/services-data";
 
-const SITE_URL = "https://akshi-grow-indore.lovable.app";
+const SITE_URL = "https://akshidigital.com";
 
 export const Route = createFileRoute("/")({
   head: () => ({

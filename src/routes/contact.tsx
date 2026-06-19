@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Clients } from "@/components/site/Clients";
 import { LeadForm } from "@/components/site/LeadForm";
 
-const SITE_URL = "https://akshi-grow-indore.lovable.app";
+const SITE_URL = "https://akshidigital.com";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

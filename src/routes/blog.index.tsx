@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { blogPosts } from "@/lib/blog-data";
 
-const SITE_URL = "https://akshi-grow-indore.lovable.app";
+const SITE_URL = "https://akshidigital.com";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
