@@ -1,0 +1,11 @@
+{
+  "name": "akshidigital-milesweb",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
